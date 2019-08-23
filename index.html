@@ -1,0 +1,128 @@
+<html>
+<head>
+    <style type="text/css">
+        body {
+            background-color: mediumpurple;
+            color: black;
+            text-align: center;
+        }
+        div {
+            width: 50%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 5px solid black;
+        }
+        
+        div.longText {
+            border: 5px solid black;
+        }
+        
+        /*div.shortText {
+            background-color: red;
+        }*/
+        div.clicked {
+            background-color: white !important;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <h1>Personal Info App</h1>
+    <div class="longText">
+    <h3>My Summer</h3>
+    <p>This summer I hungout with my friends a lot. A good part of my summer was taken up by football and my job so when I had free time I went over to my friends house and we all did a lot of random fun things like golfing or going to Cedar Point.</p>
+        </div>
+    <div>
+    <h3>Plans After High School</h3>
+    <p>When I graduate from high school I plan to attend college at the University of Toledo. I'm unsure what I want to study but I plan on picking something that I enjoy and would be willing to pursue a career in after I graduate college.</p>
+        </div>
+    <div>
+    <h3>My Trip to Kings Island</h3>
+    <p>This summer I took a trip to Kings Island amusement park in Mason Ohio. I went with my cousins and we stayed for 2 nights and it was a lot of fun.</p>
+        </div>
+    <div>
+    <h3>Football</h3>
+        <p>I am very excited for the upcoming Northview football season. This will be my second year with the program and my first year starting varsity. I think our team will have a good season and it will be a fun experience.</p>
+    </div>
+    <img src = "colts.jpg" width=100 id = "img1">
+    <script>
+        //let name = "Nick Rutkowski"
+        //let age = 17
+        //create object called person
+        let person = {
+            //key : value
+            "firstName" : "Nick",
+            "lastName" : "Rutkowski",
+            "age" : 17,
+            "favColor" : "Purple",
+            siblings : ["Zach", " Molly"],
+            favArtists : ["Post Malone", " Juice WRLD", " Iann Dior"],
+            favSports : ["Football", " Basketball"],
+            favTeams : ["Indianapolis Colts", " Ohio State Buckeyes", " Los Angeles Lakers"]
+        }
+        console.log(person)
+        console.log(person.age)
+        
+        /*let elem = document.createElement('h3')
+        elem.innerHTML = person.firstName
+        document.body.appendChild(elem)*/
+        
+        let elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Name</h3>
+        ${person.firstName} ${person.lastName}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.innerHTML = `<h3>Age</h3>
+        ${person.age}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.innerHTML = `<h3>Favorite Color</h3>
+        ${person.favColor}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.innerHTML = `<h3>Siblings</h3>
+        ${person.siblings}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.innerHTML = `<h3>Favorite Artist</h3>
+        ${person.favArtists}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.innerHTML = `<h3>Favorite Sports</h3>
+        ${person.favSports}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.innerHTML = `<h3>Favorite Sports Teams</h3>
+        ${person.favTeams}`
+        document.body.appendChild(elem)
+        
+        //Get a reference to elements on the page
+        let divs = document.querySelectorAll('div');
+        for (let i = 0; i<divs.length; i++) {
+            let div = divs[i];
+            div.addEventListener('click', handleClick);
+        }
+        
+        function handleClick(event) {
+            //event.target.style.backgroundColor = "white";
+            event.target.classList.toggle('clicked');
+        }
+        document.querySelector('#img1').addEventListener('click', handleImgClick)
+        
+        function handleImgClick(event) {
+            if (event.target.width == 300)
+                event.target.width = 100
+            else
+                event.target.width = 300
+        }
+    </script>
+</body>
+</html>
